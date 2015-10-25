@@ -1,0 +1,59 @@
+---
+title       : Developing Data Products
+subtitle    : Course Project-Shiny App Pitch 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+--- .class #id 
+
+## Intro to my Shiny App
+Are you a woman? Do you ever think about your height and weight in relation to others? Have you ever thought to yourself, am I normal? 
+
+Well, I can't guarantee you are 'normal' (who is??) but, with my shiny app you can take a look at where you fall in relation to the average heights and weights of women in the US. 
+
+We'll let you know if, for your height, you are above or below average weight. 
+
+Check out the app [here](https://beaulida2.shinyapps.io/ShinyApp)  
+Github link [here](https://github.com/beaulida2/DevDataProd_ShinyApp)
+
+--- .class #id 
+
+## Data
+
+The data used gives the average heights and weights for American women aged 30-39 taken from the American Society of Actuaries Building and Blood Pressure study. Height is reported in inches and weight is reported in lbs.
+
+```{r}
+summary(women$height)
+summary(women$weight)
+
+```
+
+--- .class #id 
+
+## US women aged 30-39: Average heights and weights
+From our data:
+
+```{r echo = FALSE, fig.height = 6, fig.width = 10}
+plot(women, xlab = "Height (in)", ylab = "Weight (lb)",
+           col = 'lightblue', pch = 16, cex = 2)
+```
+
+--- .class #id 
+
+## Where do I fall?
+My shiny app can tell you! Simply input your height and weight measurements.  
+So, if I'm 6ft (72 in) and 150lbs I just put in my stats and voila!
+
+```{r echo = FALSE, fig.height = 5, fig.width = 8}
+plot(women, xlab = "Height (in)", ylab = "Weight (lb)",
+           col = 'lightblue', pch = 16, cex = 2, ylim = c(90, 250))
+points(72, 150, col = "red", pch = 4, cex = 5, lwd = 5)
+
+```
+
+Looks like I'm below average weight for my height. Time for some ice cream!
